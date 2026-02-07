@@ -8,6 +8,7 @@
     "dev": "nodemon backend/server.js",
     "client": "cd frontend && npm start",
     "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
+    "seed": "node database/seed.js",
     "test": "jest",
     "lint": "eslint ."
   },

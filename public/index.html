@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Publishing Platform - Compete with Amazon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .comparison {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+        
+        .comparison-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .comparison-card.amazon h3 {
+            color: #FF9900;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .good {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .bad {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .feature-card ul li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 60px 0 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .tech-stack {
+            background: #2d3748;
+            color: white;
+            padding: 60px 20px;
+        }
+        
+        .tech-stack h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tech-item {
+            background: #4a5568;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Book Publishing Platform</h1>
+        <p>The indie author's platform that competes with Amazon on cost and features. Keep more of your royalties with transparent blockchain payments.</p>
+    </div>
+    
+    <div class="comparison">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 20px;">Why Choose Us?</h2>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>📚 Our Platform</h3>
+                    <ul class="feature-list">
+                        <li><span class="good">85% Royalty Rate</span> - You keep most of your earnings</li>
+                        <li><span class="good">Instant Blockchain Payments</span> - Get paid immediately</li>
+                        <li><span class="good">Full Transparency</span> - See every transaction on-chain</li>
+                        <li><span class="good">Multi-Retailer Distribution</span> - Reach all major platforms</li>
+                        <li><span class="good">Free Formatting Tools</span> - Auto-format manuscripts</li>
+                        <li><span class="good">No Exclusivity</span> - Publish anywhere simultaneously</li>
+                        <li><span class="good">POD Integration</span> - Zero inventory costs</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card amazon">
+                    <h3>📦 Amazon KDP</h3>
+                    <ul class="feature-list">
+                        <li><span class="bad">35-70% Royalty Rate</span> - They take 30-65% of your sales</li>
+                        <li><span class="bad">Monthly Payments</span> - Wait 60+ days for your money</li>
+                        <li><span class="bad">Opaque Reporting</span> - Limited visibility</li>
+                        <li><span class="bad">Amazon Only</span> - Locked to one platform with KDP Select</li>
+                        <li><span class="bad">Limited Tools</span> - Basic formatting options</li>
+                        <li><span class="bad">Exclusivity Required</span> - For best rates, go exclusive</li>
+                        <li><span class="bad">High Fees</span> - Multiple hidden costs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px;">Platform Features</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>🖨️ Print-on-Demand</h3>
+                <p>White-label integration with IngramSpark and Lulu. No inventory costs - books printed only when ordered.</p>
+                <ul>
+                    <li>Automatic cost optimization</li>
+                    <li>Volume discounts</li>
+                    <li>Real-time order tracking</li>
+                    <li>Global distribution network</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🔖 ISBN Management</h3>
+                <p>Automatic ISBN generation, validation, and registration with official agencies.</p>
+                <ul>
+                    <li>Instant ISBN assignment</li>
+                    <li>Agency registration</li>
+                    <li>Format validation</li>
+                    <li>Bulk purchasing</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>⛓️ Blockchain Royalties</h3>
+                <p>Transparent, instant payments via Ethereum smart contracts. Only 15% platform fee.</p>
+                <ul>
+                    <li>Instant payment processing</li>
+                    <li>Full transparency on-chain</li>
+                    <li>Multi-recipient splitting</li>
+                    <li>Secure wallet integration</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🌐 Direct Distribution</h3>
+                <p>Push your books to all major retailers with one click.</p>
+                <ul>
+                    <li>Amazon integration</li>
+                    <li>Barnes & Noble</li>
+                    <li>Apple Books</li>
+                    <li>Google Play Books</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>✏️ Author Tools</h3>
+                <p>Professional tools to format, design, and market your books.</p>
+                <ul>
+                    <li>Auto-formatting (PDF, EPUB)</li>
+                    <li>Cover template library</li>
+                    <li>Royalty splitting</li>
+                    <li>Analytics dashboard</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🔍 Discovery Engine</h3>
+                <p>Help readers find your books with advanced recommendations.</p>
+                <ul>
+                    <li>Personalized recommendations</li>
+                    <li>Trending algorithms</li>
+                    <li>Community reviews</li>
+                    <li>Genre tagging</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tech-stack">
+        <div class="container">
+            <h2>Built with Modern Technology</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <strong>Node.js & Express</strong>
+                    <p>Fast, scalable backend</p>
+                </div>
+                <div class="tech-item">
+                    <strong>PostgreSQL</strong>
+                    <p>Reliable database</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Ethereum</strong>
+                    <p>Blockchain payments</p>
+                </div>
+                <div class="tech-item">
+                    <strong>Smart Contracts</strong>
+                    <p>Automated royalties</p>
+                </div>
+                <div class="tech-item">
+                    <strong>JWT Auth</strong>
+                    <p>Secure authentication</p>
+                </div>
+                <div class="tech-item">
+                    <strong>RESTful API</strong>
+                    <p>Modern architecture</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cta">
+        <h2>Ready to Publish Your Book?</h2>
+        <p style="font-size: 1.2em; margin-top: 20px;">Join the platform that puts authors first. Keep more of your royalties and get paid instantly.</p>
+        <div class="cta-buttons">
+            <a href="http://localhost:5000/api" class="btn">API Documentation</a>
+            <a href="https://github.com/tap919/Book-Publishing-Platform" class="btn">View on GitHub</a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <h3>Book Publishing Platform</h3>
+            <p style="margin-top: 10px;">Built for independent authors who want to keep more of their earnings</p>
+            <p style="margin-top: 20px; opacity: 0.8;">MIT License | Open Source | Community Driven</p>
+        </div>
+    </div>
+</body>
+</html>
