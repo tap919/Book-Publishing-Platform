@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const multer = require('multer');
 require('dotenv').config();
 
 const app = express();
@@ -44,7 +45,37 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', message: 'Book Publishing Platform API is running' });
 });
 
-// Error handling middleware
+// Multer error handling middleware
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    // Multer-specific errors
+    let message = 'File upload error';
+    let status = 400;
+    
+    switch (err.code) {
+      case 'LIMIT_FILE_SIZE':
+        message = 'File size exceeds the maximum allowed size (50MB)';
+        break;
+      case 'LIMIT_FILE_COUNT':
+        message = 'Too many files uploaded';
+        break;
+      case 'LIMIT_UNEXPECTED_FILE':
+        message = 'Unexpected file field';
+        break;
+      case 'LIMIT_FIELD_COUNT':
+        message = 'Too many fields in the request';
+        break;
+      default:
+        message = err.message || 'File upload error';
+    }
+    
+    return res.status(status).json({ error: message });
+  }
+  
+  next(err);
+});
+
+// General error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.status || 500).json({

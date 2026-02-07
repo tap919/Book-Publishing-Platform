@@ -19,7 +19,30 @@ const storage = multer.diskStorage({
 
 const upload = multer({ 
   storage,
-  limits: { fileSize: parseInt(process.env.MAX_FILE_SIZE) || 52428800 },
+  limits: { 
+    fileSize: parseInt(process.env.MAX_FILE_SIZE) || 52428800,
+    files: 2, // Maximum number of files
+    fields: 10, // Maximum number of non-file fields
+  },
+  fileFilter: (req, file, cb) => {
+    // Accept only specific file types
+    const allowedMimeTypes = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'text/plain',
+      'application/rtf',
+      'image/jpeg',
+      'image/png',
+      'image/jpg'
+    ];
+    
+    if (allowedMimeTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type. Only PDF, DOC, DOCX, TXT, RTF, JPG, and PNG files are allowed.'));
+    }
+  }
 });
 
 // Create a new book
