@@ -4,18 +4,18 @@
 
 /* CSS Variables for Theme */
 :root {
-    /* Colors */
-    --primary-gradient-start: #667eea;
-    --primary-gradient-end: #764ba2;
-    --secondary-gradient-start: #f093fb;
-    --secondary-gradient-end: #f5576c;
-    --accent-gradient-start: #4facfe;
-    --accent-gradient-end: #00f2fe;
+    /* Professional Dark Color Palette */
+    --primary-gradient-start: #1a1f36;
+    --primary-gradient-end: #2d3561;
+    --secondary-gradient-start: #1e2b4d;
+    --secondary-gradient-end: #253355;
+    --accent-gradient-start: #2b4168;
+    --accent-gradient-end: #1e3a5f;
     
-    /* Glass Effect */
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: rgba(0, 0, 0, 0.1);
+    /* Glass Effect - More subtle for professional look */
+    --glass-bg: rgba(30, 40, 65, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
     
     /* Sidebar */
     --sidebar-width: 280px;
@@ -23,15 +23,15 @@
     
     /* Text Colors */
     --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-secondary: rgba(255, 255, 255, 0.75);
     --text-tertiary: rgba(255, 255, 255, 0.5);
     
-    /* Status Colors */
-    --color-blue: #4facfe;
-    --color-green: #43e97b;
-    --color-purple: #a855f7;
-    --color-orange: #fa709a;
-    --color-red: #f5576c;
+    /* Professional Status Colors - More muted */
+    --color-blue: #4a90e2;
+    --color-green: #2ecc71;
+    --color-purple: #8b7fd4;
+    --color-orange: #e67e22;
+    --color-red: #e74c3c;
     
     /* Transitions */
     --transition-fast: 0.2s ease;
@@ -41,9 +41,9 @@
 
 /* Dark Theme Variables */
 body.dark-theme {
-    --glass-bg: rgba(0, 0, 0, 0.3);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: rgba(0, 0, 0, 0.3);
+    --glass-bg: rgba(15, 20, 35, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-shadow: rgba(0, 0, 0, 0.5);
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.8);
 }
@@ -72,13 +72,13 @@ body {
     height: 100%;
     z-index: -1;
     background: linear-gradient(135deg, 
-        var(--primary-gradient-start) 0%,
-        var(--primary-gradient-end) 25%,
-        var(--secondary-gradient-start) 50%,
-        var(--secondary-gradient-end) 75%,
-        var(--accent-gradient-start) 100%);
+        #1a1f36 0%,
+        #2d3561 25%,
+        #1e2b4d 50%,
+        #253355 75%,
+        #2b4168 100%);
     background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
+    animation: gradientShift 20s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -278,7 +278,7 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    background: linear-gradient(135deg, #4a90e2, #357abd);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,8 +317,8 @@ body {
     justify-content: center;
     gap: 0.75rem;
     padding: 0.875rem;
-    background: rgba(245, 87, 108, 0.2);
-    border: 1px solid rgba(245, 87, 108, 0.3);
+    background: rgba(231, 76, 60, 0.15);
+    border: 1px solid rgba(231, 76, 60, 0.25);
     border-radius: 12px;
     color: var(--text-primary);
     cursor: pointer;
@@ -326,7 +326,7 @@ body {
 }
 
 .logout-btn:hover {
-    background: rgba(245, 87, 108, 0.3);
+    background: rgba(231, 76, 60, 0.25);
     transform: translateY(-2px);
 }
 
@@ -426,7 +426,7 @@ body {
     position: absolute;
     top: -4px;
     right: -4px;
-    background: linear-gradient(135deg, #f5576c, #fa709a);
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     font-size: 0.7rem;
     font-weight: 600;
@@ -497,19 +497,19 @@ body {
 }
 
 .stat-icon.blue {
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background: linear-gradient(135deg, #4a90e2, #357abd);
 }
 
 .stat-icon.green {
-    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
 }
 
 .stat-icon.purple {
-    background: linear-gradient(135deg, #a855f7, #ec4899);
+    background: linear-gradient(135deg, #8b7fd4, #6c63ac);
 }
 
 .stat-icon.orange {
-    background: linear-gradient(135deg, #fa709a, #fee140);
+    background: linear-gradient(135deg, #e67e22, #d35400);
 }
 
 .stat-info {
@@ -537,11 +537,11 @@ body {
 }
 
 .stat-change.positive {
-    color: #43e97b;
+    color: #2ecc71;
 }
 
 .stat-change.negative {
-    color: #f5576c;
+    color: #e74c3c;
 }
 
 /* Content Grid */
@@ -576,7 +576,7 @@ body {
 .btn-text {
     background: transparent;
     border: none;
-    color: var(--accent-gradient-start);
+    color: #4a90e2;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 500;
@@ -620,19 +620,19 @@ body {
 }
 
 .activity-icon.blue {
-    background: linear-gradient(135deg, rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3));
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.25), rgba(53, 122, 189, 0.25));
 }
 
 .activity-icon.green {
-    background: linear-gradient(135deg, rgba(67, 233, 123, 0.3), rgba(56, 249, 215, 0.3));
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.25), rgba(39, 174, 96, 0.25));
 }
 
 .activity-icon.purple {
-    background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
+    background: linear-gradient(135deg, rgba(139, 127, 212, 0.25), rgba(108, 99, 172, 0.25));
 }
 
 .activity-icon.orange {
-    background: linear-gradient(135deg, rgba(250, 112, 154, 0.3), rgba(254, 225, 64, 0.3));
+    background: linear-gradient(135deg, rgba(230, 126, 34, 0.25), rgba(211, 84, 0, 0.25));
 }
 
 .activity-details {
@@ -682,7 +682,7 @@ body {
     width: 55px;
     height: 70px;
     border-radius: 8px;
-    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    background: linear-gradient(135deg, #4a90e2, #357abd);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -722,7 +722,7 @@ body {
 .book-revenue {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #43e97b;
+    color: #2ecc71;
 }
 
 /* Quick Actions */
@@ -769,7 +769,7 @@ body {
 
 .action-btn i {
     font-size: 2rem;
-    background: linear-gradient(135deg, var(--accent-gradient-start), var(--accent-gradient-end));
+    background: linear-gradient(135deg, #4a90e2, #357abd);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
