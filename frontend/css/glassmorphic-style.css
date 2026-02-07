@@ -852,8 +852,10 @@ body {
     }
 }
 
-.glass-card {
+/* Apply animation only to stat cards for better performance */
+.stat-card {
     animation: fadeIn 0.5s ease forwards;
+    will-change: opacity, transform;
 }
 
 .stat-card:nth-child(1) {

@@ -165,13 +165,6 @@ function initResponsive() {
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('toggleSidebar');
     
-    // Handle mobile menu toggle
-    if (window.innerWidth <= 768) {
-        toggleBtn.addEventListener('click', function() {
-            sidebar.classList.toggle('active');
-        });
-    }
-    
     // Handle window resize
     let resizeTimeout;
     window.addEventListener('resize', function() {
@@ -313,14 +306,6 @@ document.querySelectorAll('.icon-btn').forEach(btn => {
 // ===========================
 // UTILITY FUNCTIONS
 // ===========================
-
-// Smooth scroll to element
-function smoothScrollTo(element) {
-    element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
 
 // Format currency
 function formatCurrency(amount) {
